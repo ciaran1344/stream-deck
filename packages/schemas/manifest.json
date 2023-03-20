@@ -1,0 +1,272 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "Actions": {
+      "description": "Specifies an array of actions.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "UUID": {
+            "description": "The unique identifier of the action.",
+            "type": "string"
+          },
+          "Icon": {
+            "description": "The relative path to a PNG image without the .png extension. This image is displayed in the actions list.",
+            "type": "string"
+          },
+          "Name": {
+            "description": "The name of the action. This string is visible to the user in the actions list.",
+            "type": "string"
+          },
+          "States": {
+            "description": "Specifies an array of states. Each action can have one or more states.",
+            "type": "array"
+          },
+          "PropertyInspectorPath": {
+            "description": "This can override PropertyInspectorPath member from the plugin if you wish to have a different PropertyInspectorPath based on the action.",
+            "type": "string"
+          },
+          "SupportedInMultiActions": {
+            "description": "Boolean to prevent the action from being used in a Multi Action.",
+            "type": "boolean",
+            "default": true
+          },
+          "Tooltip": {
+            "description": "The string is displayed as a tooltip when the user leaves the mouse over your action in the actions list.",
+            "type": "string"
+          },
+          "DisableCaching": {
+            "description": "Boolean to disable image caching.",
+            "type": "boolean",
+            "default": false
+          },
+          "VisibleInActionsList": {
+            "description": "Boolean to hide the action in the actions list. This can be used for a plugin that only works with a specific profile.",
+            "type": "boolean",
+            "default": true
+          },
+          "UserTitleEnabled": {
+            "description": "Boolean to disable the title field for users in the property inspector.",
+            "type": "boolean",
+            "default": true
+          },
+          "Controllers": {
+            "description": "Specifies an array of controllers.",
+            "type": "array",
+            "default": ["Keypad"],
+            "items": {
+              "type": "string",
+              "enum": ["Encoder", "Keypad"]
+            }
+          },
+          "Encoder": {
+            "description": "An object containing encoder information.",
+            "type": "object",
+            "properties": {
+              "background": {
+                "description": "The default background image for the encoders touch display slot.",
+                "type": "string"
+              },
+              "Icon": {
+                "description": "The default icon found in the property inspector, dial stack image, and the layout. If no icon is set Stream Deck will use the action list icon.",
+                "type": "string"
+              },
+              "layout": {
+                "description": "A string containing the name of a built-in layout or the partial path to a JSON file with a custom layout definition. You can dynamically change the layout with with setFeedbackLayout event.",
+                "type": "string",
+                "default": "$X1"
+              },
+              "StackColor": {
+                "description": "The color that will be used in the dial stack as background color.",
+                "type": "string"
+              },
+              "TriggerDescription": {
+                "description": "An object containing strings to describe actions in the property inspector.",
+                "type": "object",
+                "properties": {
+                  "Rotate": {
+                    "description": "Describe the rotation",
+                    "type": "string"
+                  },
+                  "Push": {
+                    "description": "Describe the encoder push",
+                    "type": "string"
+                  },
+                  "Touch": {
+                    "description": "Describe the touch",
+                    "type": "string"
+                  },
+                  "LongTouch": {
+                    "description": "Describe the long touch",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": ["UUID", "Icon", "Name", "Required"]
+      }
+    },
+    "Author": {
+      "description": "The author of the plugin. This string is displayed to the user in the Stream Deck store.",
+      "type": "string"
+    },
+    "CodePath": {
+      "description": "The relative path to the HTML/binary file containing the plugin code.",
+      "type": "string"
+    },
+    "Description": {
+      "description": "Provides a general description of what the plugin does. This string is displayed to the user in the Stream Deck store.",
+      "type": "string"
+    },
+    "Icon": {
+      "description": "The relative path to a PNG image without the .png extension. This image is displayed in the Plugin Store window. The PNG image should be a 72pt x 72pt image. You should provide @1x and @2x (144pt x 144pt) versions of the image. The Stream Deck application takes care of loading the appropriate version of the image.",
+      "type": "string"
+    },
+    "Name": {
+      "description": "The name of the plugin. This string is displayed to the user in the Stream Deck store.",
+      "type": "string"
+    },
+    "Version": {
+      "description": "Plugin's semantic version (1.0.0)",
+      "type": "string"
+    },
+    "SDKVersion": {
+      "description": "The current SDK version is 2",
+      "type": "number"
+    },
+    "OS": {
+      "description": "The list of operating systems & versions supported by the plugin.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Platform": {
+            "type": "string",
+            "enum": ["mac", "windows"]
+          },
+          "MinimumVersion": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Software": {
+      "description": "Indicates which version of the Stream Deck application is required to install the plugin.",
+      "type": "object",
+      "properties": {
+        "MinimumVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "Category": {
+      "description": "The name of the custom category in which the actions should be listed. This string is visible to the user in the actions list. If you don't provide a category, the actions will appear inside a \"Custom\" category.",
+      "type": "string"
+    },
+    "CategoryIcon": {
+      "description": "The relative path to a PNG image without the .png extension. This image is used in the actions list. The PNG image should be a 28pt x 28pt image. You should provide @1x and @2x versions of the image. The Stream Deck application takes care of loading the appropriate version of the image.",
+      "type": "string"
+    },
+    "CodePathMac": {
+      "description": "Override CodePath for macOS.",
+      "type": "string"
+    },
+    "CodePathWin": {
+      "description": "Override CodePath for Windows.",
+      "type": "string"
+    },
+    "Profiles": {
+      "description": "Specifies an array of profiles. A plugin can have one or more profiles proposed to the user on installation. This lets you create full screen plugins.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "description": "The filename of the profile.",
+            "type": "string"
+          },
+          "DeviceType": {
+            "description": "Type of device.",
+            "oneOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "kESDSDKDeviceType_StreamDeck",
+                  "kESDSDKDeviceType_StreamDeckMini",
+                  "kESDSDKDeviceType_StreamDeckXL",
+                  "kESDSDKDeviceType_StreamDeckMobile",
+                  "kESDSDKDeviceType_CorsairGKeys",
+                  "kESDSDKDeviceType_StreamDeckPedal",
+                  "kESDSDKDeviceType_CorsairVoyager",
+                  "kESDSDKDeviceType_StreamDeckPlus"
+                ]
+              },
+              {
+                "type": "number",
+                "enum": [0, 1, 2, 3, 4, 5, 6]
+              }
+            ]
+          },
+          "Readonly": {
+            "description": "Boolean to mark the profile as read-only.",
+            "type": "boolean",
+            "default": false
+          },
+          "DontAutoSwitchWhenInstalled": {
+            "description": "Boolean to prevent Stream Deck from automatically switching to this profile when installed.",
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": ["Name", "DeviceType"]
+      }
+    },
+    "PropertyInspectorPath": {
+      "description": "The relative path to the Property Inspector HTML file if your plugin wants to display some custom settings in the Property Inspector. If missing, the plugin will have an empty Property Inspector.",
+      "type": "string"
+    },
+    "DefaultWindowSize": {
+      "description": "Specify the default window size when a Javascript plugin or Property Inspector opens a window using window.open().",
+      "type": "string",
+      "default": "[500, 650]"
+    },
+    "URL": {
+      "description": "A site to provide more information about the plugin",
+      "type": "string"
+    },
+    "ApplicationsToMonitor": {
+      "description": "List of application identifiers to monitor (applications launched or terminated).",
+      "type": "object",
+      "properties": {
+        "mac": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "Actions",
+    "Author",
+    "CodePath",
+    "Description",
+    "Icon",
+    "Name",
+    "Version",
+    "SDKVersion",
+    "OS",
+    "Software"
+  ]
+}
