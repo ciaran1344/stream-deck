@@ -1,7 +1,6 @@
-export interface ActionBase<P extends object> {
+export interface ActionBase<A extends string, P extends object> {
   /** The action's unique identifier. */
-  // TODO: Make generic
-  action: string;
+  action: A;
   /** A value identifying the instance's action. */
   context: string;
   /** A value to identify the device. */

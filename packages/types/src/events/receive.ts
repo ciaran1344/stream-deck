@@ -32,9 +32,9 @@ export interface DidReceiveSettingsPayload<S extends object = any> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#didreceivesettings}
  */
-export interface DidReceiveSettingsEvent<S extends object = any>
+export interface DidReceiveSettingsEvent<A extends string = string, S extends object = any>
   extends EventBase<"didReceiveSettings">,
-    ActionBase<DidReceiveSettingsPayload<S>> {}
+    ActionBase<A, DidReceiveSettingsPayload<S>> {}
 
 export interface DidReceiveGlobalSettingsPayload<S extends object = any> {
   /** This JSON object contains persistently stored data. */
@@ -46,9 +46,9 @@ export interface DidReceiveGlobalSettingsPayload<S extends object = any> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#didreceiveglobalsettings}
  */
-export interface DidReceiveGlobalSettingsEvent<S extends object = any>
+export interface DidReceiveGlobalSettingsEvent<A extends string = string, S extends object = any>
   extends EventBase<"didReceiveGlobalSettings">,
-    ActionBase<DidReceiveGlobalSettingsPayload<S>> {}
+    ActionBase<A, DidReceiveGlobalSettingsPayload<S>> {}
 
 export interface KeyPayload<S extends object = any> {
   /** The coordinates of the action triggered. */
@@ -76,18 +76,18 @@ export interface KeyPayload<S extends object = any> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#keydown}
  */
-export interface KeyDownEvent<S extends object = any>
+export interface KeyDownEvent<A extends string = string, S extends object = any>
   extends EventBase<"keyDown">,
-    ActionBase<KeyPayload<S>> {}
+    ActionBase<A, KeyPayload<S>> {}
 
 /**
  * When the user releases a key, the plugin will receive the `keyUp` event.
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#keyup}
  */
-export interface KeyUpEvent<S extends object = any>
+export interface KeyUpEvent<A extends string = string, S extends object = any>
   extends EventBase<"keyUp">,
-    ActionBase<KeyPayload<S>> {}
+    ActionBase<A, KeyPayload<S>> {}
 
 export interface TouchTapPayload<S extends object = any> {
   /** The coordinates of the action triggered. */
@@ -108,9 +108,9 @@ export interface TouchTapPayload<S extends object = any> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#touchtap}
  */
-export interface TouchTapEvent<S extends object = any>
+export interface TouchTapEvent<A extends string = string, S extends object = any>
   extends EventBase<"touchTap">,
-    ActionBase<TouchTapPayload<S>> {}
+    ActionBase<A, TouchTapPayload<S>> {}
 
 /**
  * When the user presses or releases the encoder, the plugin will receive the `dialPress` event
@@ -158,8 +158,7 @@ export interface WillDisappearEvent extends EventBase<"willDisappear"> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#titleparametersdidchange}
  */
-export interface TitleParametersDidChangeEvent
-  extends EventBase<"titleParametersDidChange"> {
+export interface TitleParametersDidChangeEvent extends EventBase<"titleParametersDidChange"> {
   // TODO
 }
 
@@ -178,8 +177,7 @@ export interface DeviceDidConnectEvent extends EventBase<"deviceDidConnect"> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#devicediddisconnect}
  */
-export interface DeviceDidDisconnectEvent
-  extends EventBase<"deviceDidDisconnect"> {
+export interface DeviceDidDisconnectEvent extends EventBase<"deviceDidDisconnect"> {
   // TODO
 }
 
@@ -189,8 +187,7 @@ export interface DeviceDidDisconnectEvent
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#applicationdidlaunch}
  */
-export interface ApplicationDidLaunchEvent
-  extends EventBase<"applicationDidLaunch"> {
+export interface ApplicationDidLaunchEvent extends EventBase<"applicationDidLaunch"> {
   // TODO
 }
 
@@ -200,8 +197,7 @@ export interface ApplicationDidLaunchEvent
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#applicationdidterminate}
  */
-export interface ApplicationDidTerminateEvent
-  extends EventBase<"applicationDidTerminate"> {
+export interface ApplicationDidTerminateEvent extends EventBase<"applicationDidTerminate"> {
   // TODO
 }
 
@@ -220,8 +216,7 @@ export interface SystemDidWakeUpEvent extends EventBase<"systemDidWakeUp"> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#propertyinspectordidappear}
  */
-export interface PropertyInspectorDidAppearEvent
-  extends EventBase<"propertyInspectorDidAppear"> {
+export interface PropertyInspectorDidAppearEvent extends EventBase<"propertyInspectorDidAppear"> {
   // TODO
 }
 
@@ -236,9 +231,7 @@ export interface PropertyInspectorDidDisappearEvent
   // TODO
 }
 
-export type CommonReceiveEvent =
-  | DidReceiveSettingsEvent
-  | DidReceiveGlobalSettingsEvent;
+export type CommonReceiveEvent = DidReceiveSettingsEvent | DidReceiveGlobalSettingsEvent;
 
 export type PluginReceiveEvent =
   | ApplicationDidLaunchEvent
@@ -260,6 +253,4 @@ export type PluginReceiveEvent =
   | WillAppearEvent
   | WillDisappearEvent;
 
-export type PropertyInspectorReceiveEvent =
-  | CommonReceiveEvent
-  | SendToPropertyInspectorEvent;
+export type PropertyInspectorReceiveEvent = CommonReceiveEvent | SendToPropertyInspectorEvent;
