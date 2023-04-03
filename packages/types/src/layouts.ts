@@ -58,11 +58,7 @@ export interface BarItem extends ItemBase<"bar"> {
   bar_fill_c?: string;
   /** An integer value for border width. Defaulted to 2. */
   border_w?: number;
-  /**
-   * An integer value to represent shape:
-   * 0 - rectangle, 1 - double rectangle, 2 - trapezoid, 3 - double trapezoid, 4 - groove
-   * (groove is recommended design for SD+)
-   */
+  /** An integer value to represent shape. */
   subtype?: BarSubtype;
 }
 
@@ -71,8 +67,15 @@ export interface BarItem extends ItemBase<"bar"> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#gbar}
  */
-export interface GbarItem extends ItemBase<"gbar"> {
-  // TODO
+export interface GbarItem
+  extends ItemBase<"gbar">,
+    Pick<BarItem, "bar_bg_c" | "bar_border_c" | "border_w" | "subtype"> {
+  /**
+   * An integer value for the indicator's groove height.
+   * The indicator height will be adjusted to fit in the items height.
+   * Defaulted to 10.
+   */
+  bar_h?: number;
 }
 
 /**
@@ -82,16 +85,94 @@ export interface GbarItem extends ItemBase<"gbar"> {
  */
 export interface PixmapItem extends ItemBase<"pixmap"> {}
 
+export interface Font {
+  /**
+   * An integer font pixel size.
+   *
+   * Note that if the key for the text item is title the styles selected in the property inspector
+   * will override this property.
+   */
+  size?: string;
+  /**
+   * Weight of the font
+   * (an integer value between 100 and 1000 or the string with a name of typographical weight).
+   *
+   * Note that if the key for the text item is title the styles selected in the property inspector
+   * will override this property.
+   */
+  weight?: string;
+}
+
 /**
  * A text label.
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#text}
  */
 export interface TextItem extends ItemBase<"text"> {
-  // TODO
+  /**
+   * A string describing the text alignment in the rectangle.
+   * Defaulted to center.
+   *
+   * Note that if the key for the text item is title the styles selected in the property inspector
+   * will override this proper.
+   */
+  alignment?: "center" | "left" | "right";
+  /**
+   * A string describing the color of text.
+   * Defaulted to white.
+   *
+   * Note that if the key for the text item is title the styles selected in the property inspector
+   * will override this property.
+   */
+  color?: string;
+  /** An object describing the text. */
+  font?: Font;
 }
 
 export type Item = BarItem | GbarItem | PixmapItem | TextItem;
+
+/**
+ * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#built-in-layouts}
+ */
+export enum BuiltInLayout {
+  /**
+   * The default layout.
+   *
+   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#icon-layout-x1}
+   */
+  Icon = "$X1",
+  /**
+   * The layout best suited for custom images with a title.
+   *
+   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#canvas-layout-a0}
+   */
+  Canvas = "$A0",
+  /**
+   * The layout best suited for representing a single value.
+   *
+   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#value-layout-a1}
+   */
+  Value = "$A1",
+  /**
+   * The layout best suited for representing a single value range.
+   *
+   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#indicator-layout-b1}
+   */
+  Indicator = "$B1",
+  /**
+   * The layout best suited for representing a single value range, where the data can be further
+   * explained using color.
+   *
+   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#gradient-indicator-layout-b2}
+   */
+  GradientIndicator = "$B2",
+  /**
+   * The layout best suited for representing two value ranges.
+   *
+   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#double-indicator-layout-c1}
+   */
+  DoubleIndicator = "$C1",
+}
 
 export interface Layout {
   /**

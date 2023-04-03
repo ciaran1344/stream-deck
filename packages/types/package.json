@@ -1,5 +1,5 @@
 {
-  "name": "types",
+  "name": "@ciaran1344/stream-deck-types",
   "version": "1.0.0",
   "description": "TypeScript definitions for the Stream Deck SDK",
   "main": "dist/index.js",

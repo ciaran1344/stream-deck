@@ -1,7 +1,6 @@
 // https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/
 
 import { Item } from "../layouts";
-
 import { EventBase } from "./common";
 
 /**
@@ -179,8 +178,7 @@ export interface SendToPluginEvent extends EventBase<"sendToPlugin"> {
  *
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#sendtopropertyinspector}
  */
-export interface SendToPropertyInspectorEvent
-  extends EventBase<"sendToPropertyInspector"> {
+export interface SendToPropertyInspectorEvent extends EventBase<"sendToPropertyInspector"> {
   // TODO
 }
 
