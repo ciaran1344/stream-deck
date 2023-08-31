@@ -72,6 +72,10 @@ export interface Info {
   plugin: Plugin;
 }
 
+export interface RegisterPluginEvent extends EventBase<"registerEvent"> {
+  uuid: string;
+}
+
 /**
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/registration-procedure/#javascript-plugin-registration}
  */
@@ -81,16 +85,10 @@ export type RegisterPlugin = (
   /** A unique identifier string to register the plugin with Stream Deck software. */
   inPluginUUID: string,
   /** The event type to register the plugin after opening the WebSocket. */
-  inRegisterEvent: "registerEvent",
+  inRegisterEvent: RegisterPluginEvent["event"],
   /** A JSON object containing information about the application. */
   inInfo: Info
 ) => void;
-
-interface RegisterEventBase<E extends string> extends EventBase<E> {
-  uuid: string;
-}
-
-export interface RegisterPluginEvent extends RegisterEventBase<"registerEvent"> {}
 
 export interface ActionInfoPayload<S = any> {
   coordinates: Coordinates;
@@ -102,6 +100,10 @@ export interface ActionInfoPayload<S = any> {
  */
 export interface ActionInfo<S = any> extends Action<ActionInfoPayload<S>> {}
 
+export interface RegisterPropertyInspectorEvent extends EventBase<"registerPropertyInspector"> {
+  uuid: string;
+}
+
 /**
  * {@link https://developer.elgato.com/documentation/stream-deck/sdk/registration-procedure/#property-inspector-registration}
  */
@@ -111,12 +113,9 @@ export type RegisterPropertyInspector = (
   /** A unique identifier string to register Property Inspector with Stream Deck software. */
   inPropertyInspectorUUID: string,
   /** The event type to register the plugin after opening the WebSocket. */
-  inRegisterEvent: "registerPropertyInspector",
+  inRegisterEvent: RegisterPropertyInspectorEvent["event"],
   /** A JSON object containing information about the application. */
   inInfo: Info,
   /** A JSON object containing information about the action. */
   inActionInfo: ActionInfo
 ) => void;
-
-export interface RegisterPropertyInspectorEvent
-  extends RegisterEventBase<"registerPropertyInspector"> {}
