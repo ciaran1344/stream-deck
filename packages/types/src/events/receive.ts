@@ -1,4 +1,4 @@
-// https://developer.elgato.com/documentation/stream-deck/sdk/events-received/
+// https://docs.elgato.com/sdk/plugins/events-received
 
 import { Action, ActionDescriptor } from "../actions";
 import { Device } from "../registration";
@@ -34,7 +34,7 @@ export interface DidReceiveSettingsPayload<S extends object = any> extends Paylo
  * Event received after calling the `getSettings` API to retrieve the persistent data stored for the
  * action.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#didreceivesettings}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#didreceivesettings}
  */
 export interface DidReceiveSettingsEvent<S extends object = any>
   extends EventAction<"didReceiveSettings", S> {}
@@ -47,7 +47,7 @@ export interface DidReceiveGlobalSettingsPayload<S extends object = any> {
 /**
  * Event received after calling the `getGlobalSettings` API to retrieve the global persistent data.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#didreceiveglobalsettings}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#didreceiveglobalsettings}
  */
 export interface DidReceiveGlobalSettingsEvent<S extends object = any>
   extends EventAction<"didReceiveGlobalSettings", DidReceiveGlobalSettingsPayload<S>> {}
@@ -71,7 +71,7 @@ export interface KeyDownPayload<S extends object = any> extends PayloadBase<S> {
 /**
  * When the user presses a key, the plugin will receive the `keyDown` event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#keydown}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#keydown}
  */
 export interface KeyDownEvent<S extends object = any>
   extends EventAction<"keyDown", KeyDownPayload<S>> {}
@@ -81,7 +81,7 @@ export interface KeyUpPayload<S extends object = any> extends KeyDownPayload<S> 
 /**
  * When the user releases a key, the plugin will receive the `keyUp` event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#keyup}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#keyup}
  */
 export interface KeyUpEvent<S extends object = any> extends EventAction<"keyUp", KeyUpPayload<S>> {}
 
@@ -98,7 +98,7 @@ export interface TouchTapPayload<S extends object = any> extends PayloadBase<S> 
 /**
  * When the user touches the display, the plugin will receive the `touchTap` event (SD+).
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#touchtap}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#touchtap}
  */
 export interface TouchTapEvent<S extends object = any>
   extends EventAction<"touchTap", TouchTapPayload<S>> {}
@@ -112,7 +112,7 @@ export interface DialPressPayload<S extends object = any> extends PayloadBase<S>
  * When the user presses or releases the encoder, the plugin will receive the `dialPress` event
  * (SD+).
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#dialpress}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#dialpress}
  */
 export interface DialPressEvent<S extends object = any>
   extends EventAction<"dialPress", DialPressPayload<S>> {}
@@ -129,7 +129,7 @@ export interface DialRotatePayload<S extends object = any> extends DialPressPayl
 /**
  * When the user rotates the encoder, the plugin will receive the `dialRotate` event (SD+).
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#dialrotate}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#dialrotate}
  */
 export interface DialRotateEvent<S extends object = any>
   extends EventAction<"dialRotate", DialRotatePayload<S>> {}
@@ -151,7 +151,7 @@ export interface WillAppearPayload<S extends object = any> extends PayloadBase<S
  * first plugged in or when a folder containing that action is entered, the plugin will receive a
  * `willAppear` event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#willappear}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#willappear}
  */
 export interface WillAppearEvent<S extends object = any>
   extends EventAction<"willAppear", WillAppearPayload<S>> {}
@@ -162,7 +162,7 @@ export interface WillDisappearPayload<S extends object = any> extends WillAppear
  * When an instance of an action ceases to be displayed on Stream Deck, for example, when switching
  * profiles or folders, the plugin will receive a `willDisappear` event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#willdisappear}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#willdisappear}
  */
 export interface WillDisappearEvent<S extends object = any>
   extends EventAction<"willDisappear", WillDisappearPayload<S>> {}
@@ -199,7 +199,7 @@ export interface TitleParametersDidChangePayload<S extends object = any> extends
  * When the user changes the title or title parameters, the plugin will receive a
  * `titleParametersDidChange` event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#titleparametersdidchange}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#titleparametersdidchange}
  */
 export interface TitleParametersDidChangeEvent<S extends object = any>
   extends EventAction<"titleParametersDidChange", TitleParametersDidChangePayload<S>> {}
@@ -209,7 +209,7 @@ export interface DeviceInfo extends Omit<Device, "id"> {}
 /**
  * When a device is plugged to the computer, the plugin will receive a `deviceDidConnect` event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#devicedidconnect}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#devicedidconnect}
  */
 export interface DeviceDidConnectEvent extends EventBase<"deviceDidConnect"> {
   /** A value to identify the device. */
@@ -222,7 +222,7 @@ export interface DeviceDidConnectEvent extends EventBase<"deviceDidConnect"> {
  * When a device is unplugged from the computer, the plugin will receive a `deviceDidDisconnect`
  * event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#devicediddisconnect}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#devicediddisconnect}
  */
 export interface DeviceDidDisconnectEvent extends EventBase<"deviceDidDisconnect"> {
   /** A value to identify the device. */
@@ -238,7 +238,7 @@ export interface ApplicationDidLaunchPayload {
  * When a monitored application is launched, the plugin will receive the `applicationDidLaunch`
  * event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#applicationdidlaunch}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#applicationdidlaunch}
  */
 export interface ApplicationDidLaunchEvent extends EventBase<"applicationDidLaunch"> {
   /** A JSON object. */
@@ -251,7 +251,7 @@ export interface ApplicationDidTerminatePayload extends ApplicationDidLaunchPayl
  * When a monitored application is terminated, the plugin will receive the `applicationDidTerminate`
  * event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#applicationdidterminate}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#applicationdidterminate}
  */
 export interface ApplicationDidTerminateEvent extends EventBase<"applicationDidTerminate"> {
   /** A JSON object. */
@@ -261,7 +261,7 @@ export interface ApplicationDidTerminateEvent extends EventBase<"applicationDidT
 /**
  * When the computer wakes up, the plugin will receive the `systemDidWakeUp` event.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#systemdidwakeup}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#systemdidwakeup}
  */
 export interface SystemDidWakeUpEvent extends EventBase<"systemDidWakeUp"> {}
 
@@ -269,7 +269,7 @@ export interface SystemDidWakeUpEvent extends EventBase<"systemDidWakeUp"> {}
  * Event received when the Property Inspector appears in the Stream Deck user interface, for
  * example, when selecting a new instance.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#propertyinspectordidappear}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#propertyinspectordidappear}
  */
 export interface PropertyInspectorDidAppearEvent
   extends EventBase<"propertyInspectorDidAppear">,
@@ -279,7 +279,7 @@ export interface PropertyInspectorDidAppearEvent
  * Event received when the Property Inspector is removed from the Stream Deck user interface, for
  * example, when selecting a different instance.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#propertyinspectordiddisappear}
+ * {@link https://docs.elgato.com/sdk/plugins/events-received#propertyinspectordiddisappear}
  */
 export interface PropertyInspectorDidDisappearEvent
   extends EventBase<"propertyInspectorDidDisappear">,

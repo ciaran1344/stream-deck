@@ -1,10 +1,10 @@
-// https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/
+// https://docs.elgato.com/sdk/plugins/events-sent
 
 import { Item } from "../layouts";
 import { EventBase } from "./common";
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#setsettings}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#setsettings}
  */
 export interface SetSettingsEvent extends EventBase<"setSettings"> {
   /**
@@ -18,7 +18,7 @@ export interface SetSettingsEvent extends EventBase<"setSettings"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#getsettings}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#getsettings}
  */
 export interface GetSettingsEvent extends EventBase<"getSettings"> {
   /**
@@ -30,7 +30,7 @@ export interface GetSettingsEvent extends EventBase<"getSettings"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#setglobalsettings}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#setglobalsettings}
  */
 export interface SetGlobalSettingsEvent extends EventBase<"setGlobalSettings"> {
   /**
@@ -44,7 +44,7 @@ export interface SetGlobalSettingsEvent extends EventBase<"setGlobalSettings"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#getglobalsettings}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#getglobalsettings}
  */
 export interface GetGlobalSettingsEvent extends EventBase<"getGlobalSettings"> {
   /**
@@ -56,7 +56,7 @@ export interface GetGlobalSettingsEvent extends EventBase<"getGlobalSettings"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#openurl}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#openurl}
  */
 export interface OpenUrlEvent extends EventBase<"openUrl"> {
   /** A JSON object. */
@@ -67,7 +67,7 @@ export interface OpenUrlEvent extends EventBase<"openUrl"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#logmessage}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#logmessage}
  */
 export interface LogMessageEvent extends EventBase<"logMessage"> {
   /** A JSON object. */
@@ -87,7 +87,7 @@ export enum SetTarget {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#settitle}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#settitle}
  */
 export interface SetTitleEvent extends EventBase<"setTitle"> {
   /** A value to identify the instance's action you want to modify. */
@@ -117,7 +117,7 @@ export interface SetTitleEvent extends EventBase<"setTitle"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#setimage}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#setimage}
  */
 export interface SetImageEvent extends EventBase<"setImage"> {
   /** A value to identify the instance's action you want to modify. */
@@ -154,7 +154,7 @@ type EditableItemMap = {
 export type EditableItem = EditableItemMap[keyof EditableItemMap];
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#setfeedback}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#setfeedback}
  */
 export interface SetFeedbackEvent extends EventBase<"setFeedback"> {
   context: string;
@@ -162,7 +162,7 @@ export interface SetFeedbackEvent extends EventBase<"setFeedback"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#setfeedbacklayout}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#setfeedbacklayout}
  */
 export interface SetFeedbackLayoutEvent extends EventBase<"setFeedbackLayout"> {
   context: string;
@@ -176,7 +176,7 @@ export interface SetFeedbackLayoutEvent extends EventBase<"setFeedbackLayout"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#showalert}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#showalert}
  */
 export interface ShowAlertEvent extends EventBase<"showAlert"> {
   /** A value to identify the instance's action. */
@@ -184,7 +184,7 @@ export interface ShowAlertEvent extends EventBase<"showAlert"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#showok}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#showok}
  */
 export interface ShowOkEvent extends EventBase<"showOk"> {
   /** A value to identify the instance's action. */
@@ -192,7 +192,7 @@ export interface ShowOkEvent extends EventBase<"showOk"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#setstate}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#setstate}
  */
 export interface SetStateEvent extends EventBase<"setState"> {
   /** A value to identify the instance's action. */
@@ -205,7 +205,7 @@ export interface SetStateEvent extends EventBase<"setState"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#switchtoprofile}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#switchtoprofile}
  */
 export interface SwitchToProfileEvent extends EventBase<"switchToProfile"> {
   /**
@@ -228,7 +228,7 @@ export interface SwitchToProfileEvent extends EventBase<"switchToProfile"> {
 /**
  * Send a payload to the plugin.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#sendtoplugin}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#sendtoplugin}
  */
 export interface SendToPluginEvent extends EventBase<"sendToPlugin"> {
   /**
@@ -250,7 +250,7 @@ export interface SendToPluginEvent extends EventBase<"sendToPlugin"> {
 /**
  * Send a payload to the Property Inspector.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/events-sent/#sendtopropertyinspector}
+ * {@link https://docs.elgato.com/sdk/plugins/events-sent/#sendtopropertyinspector}
  */
 export interface SendToPropertyInspectorEvent extends EventBase<"sendToPropertyInspector"> {
   /** The action's unique identifier. */

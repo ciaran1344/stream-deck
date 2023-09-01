@@ -1,4 +1,4 @@
-// https://developer.elgato.com/documentation/stream-deck/sdk/layouts
+// https://docs.elgato.com/sdk/plugins/layouts-sd+
 
 export interface ItemBase<T extends string> {
   /**
@@ -47,7 +47,7 @@ export enum BarSubtype {
 /**
  * Bar shape filled with the specified color.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#bar}
+ * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#bar}
  */
 export interface BarItem extends ItemBase<"bar"> {
   /** A string value to determine bar color or gradient. Defaulted to `darkGray`. */
@@ -65,7 +65,7 @@ export interface BarItem extends ItemBase<"bar"> {
 /**
  * Bar shape with a triangle indicator below.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#gbar}
+ * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#gbar}
  */
 export interface GbarItem
   extends ItemBase<"gbar">,
@@ -81,7 +81,7 @@ export interface GbarItem
 /**
  * Used to display an image. The image is scaled with respect to `rect`.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#pixmap}
+ * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#pixmap}
  */
 export interface PixmapItem extends ItemBase<"pixmap"> {}
 
@@ -106,7 +106,7 @@ export interface Font {
 /**
  * A text label.
  *
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#text}
+ * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#text}
  */
 export interface TextItem extends ItemBase<"text"> {
   /**
@@ -132,44 +132,44 @@ export interface TextItem extends ItemBase<"text"> {
 export type Item = BarItem | GbarItem | PixmapItem | TextItem;
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#built-in-layouts}
+ * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#built-in-layouts}
  */
 export enum BuiltInLayout {
   /**
    * The default layout.
    *
-   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#icon-layout-x1}
+   * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#icon-layout-x1}
    */
   Icon = "$X1",
   /**
    * The layout best suited for custom images with a title.
    *
-   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#canvas-layout-a0}
+   * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#canvas-layout-a0}
    */
   Canvas = "$A0",
   /**
    * The layout best suited for representing a single value.
    *
-   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#value-layout-a1}
+   * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#value-layout-a1}
    */
   Value = "$A1",
   /**
    * The layout best suited for representing a single value range.
    *
-   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#indicator-layout-b1}
+   * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#indicator-layout-b1}
    */
   Indicator = "$B1",
   /**
    * The layout best suited for representing a single value range, where the data can be further
    * explained using color.
    *
-   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#gradient-indicator-layout-b2}
+   * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#gradient-indicator-layout-b2}
    */
   GradientIndicator = "$B2",
   /**
    * The layout best suited for representing two value ranges.
    *
-   * {@link https://developer.elgato.com/documentation/stream-deck/sdk/layouts/#double-indicator-layout-c1}
+   * {@link https://docs.elgato.com/sdk/plugins/layouts-sd+#double-indicator-layout-c1}
    */
   DoubleIndicator = "$C1",
 }

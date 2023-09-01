@@ -1,4 +1,4 @@
-// https://developer.elgato.com/documentation/stream-deck/sdk/registration-procedure/
+// https://docs.elgato.com/sdk/plugins/registration-procedure
 
 import { Action } from "./actions";
 import { Coordinates, EventBase } from "./events";
@@ -57,7 +57,7 @@ export interface Device {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/registration-procedure/#info-parameter}
+ * {@link https://docs.elgato.com/sdk/plugins/registration-procedure#info-parameter}
  */
 export interface Info {
   /**	A JSON object containing information about the application. */
@@ -77,7 +77,7 @@ export interface RegisterPluginEvent extends EventBase<"registerEvent"> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/registration-procedure/#javascript-plugin-registration}
+ * {@link https://docs.elgato.com/sdk/plugins/registration-procedure#javascript-plugin-registration}
  */
 export type RegisterPlugin = (
   /** The port that to be used to create the WebSocket. */
@@ -96,7 +96,7 @@ export interface ActionInfoPayload<S = any> {
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/registration-procedure/#inactioninfo-parameter}
+ * {@link https://docs.elgato.com/sdk/plugins/registration-procedure#inactioninfo-parameter}
  */
 export interface ActionInfo<S = any> extends Action<ActionInfoPayload<S>> {}
 
@@ -105,7 +105,7 @@ export interface RegisterPropertyInspectorEvent extends EventBase<"registerPrope
 }
 
 /**
- * {@link https://developer.elgato.com/documentation/stream-deck/sdk/registration-procedure/#property-inspector-registration}
+ * {@link https://docs.elgato.com/sdk/plugins/registration-procedure#property-inspector-registration}
  */
 export type RegisterPropertyInspector = (
   /** The port that to be used to create the WebSocket. */

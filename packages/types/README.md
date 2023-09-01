@@ -1,7 +1,7 @@
 # Stream Deck Types
 
 TypeScript definitions for the
-[Stream Deck SDK](https://developer.elgato.com/documentation/stream-deck/sdk).
+[Stream Deck SDK](https://docs.elgato.com/sdk/).
 
 ## Usage
 
@@ -10,12 +10,7 @@ TypeScript definitions for the
 ```ts
 import { PluginReceiveEvent, RegisterPlugin } from "stream-deck/types";
 
-const connectElgatoStreamDeckSocket: RegisterPlugin = function (
-  port,
-  pluginUuid,
-  eventType,
-  info
-) {
+const connectElgatoStreamDeckSocket: RegisterPlugin = function (port, pluginUuid, eventType, info) {
   const ws = new WebSocket(`ws://localhost:${port}`);
 
   ws.onmessage = function (event) {
