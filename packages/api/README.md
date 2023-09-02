@@ -25,8 +25,10 @@ plugin
 globalThis.connectElgatoStreamDeckSocket = plugin.register(() => {
   // Run program on WebSocket open
   plugin.send({
-    event: "showAlert",
-    context: "...",
+    event: "logMessage",
+    payload: {
+      message: "Hello from the plugin!",
+    },
   });
 });
 ```
@@ -39,5 +41,25 @@ https://docs.elgato.com/sdk/plugins/registration-procedure#property-inspector-re
 ```ts
 import { PropertyInspector } from "@ciaran1344/stream-deck-api";
 
-// TODO
+const propertyInspector = new PropertyInspector();
+
+// Add Property Inspector event listeners
+propertyInspector
+  .addEventListener("didReceiveGlobalSettings", (event) => {
+    // Use event
+  })
+  .addEventListener("sendToPropertyInspector", (event) => {
+    // Use event
+  });
+
+// Connect the Property Inspector to the global hook
+globalThis.connectElgatoStreamDeckSocket = propertyInspector.register(() => {
+  // Run program on WebSocket open
+  propertyInspector.send({
+    event: "logMessage",
+    payload: {
+      message: "Hello from the Property Inspector!",
+    },
+  });
+});
 ```

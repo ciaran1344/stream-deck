@@ -57,7 +57,7 @@ export default class Plugin extends Emitter<PluginReceiveEventMap> {
           JSON.stringify({
             event: eventType,
             uuid,
-          } satisfies RegisterPluginEvent)
+          } satisfies RegisterPluginEvent),
         );
 
         onReady();
