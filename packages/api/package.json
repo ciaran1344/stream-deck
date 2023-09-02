@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@ciaran1344/stream-deck-api",
   "version": "1.0.0",
   "description": "A strongly typed native ES6 API for creating StreamDeck JavaScript Plugins and Property Inspectors",
   "author": "Ciarán Ingle",
