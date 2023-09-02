@@ -1,9 +1,5 @@
 {
   "name": "@ciaran1344/stream-deck",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ciaran1344/stream-deck-plugins.git"
@@ -13,5 +9,12 @@
   "bugs": {
     "url": "https://github.com/ciaran1344/stream-deck-plugins/issues"
   },
-  "homepage": "https://github.com/ciaran1344/stream-deck-plugins#readme"
+  "homepage": "https://github.com/ciaran1344/stream-deck-plugins#readme",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace packages/types --workspace packages/api"
+  }
 }
