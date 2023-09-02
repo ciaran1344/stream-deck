@@ -5,7 +5,7 @@ import {
   PropertyInspectorSendEvent,
   RegisterPropertyInspector,
   RegisterPropertyInspectorEvent,
-} from "../../types";
+} from "@ciaran1344/stream-deck-types";
 
 import Emitter from "./Emitter";
 
@@ -62,7 +62,7 @@ export default class PropertyInspector extends Emitter<PropertyInspectorReceiveE
           JSON.stringify({
             event: eventType,
             uuid,
-          } satisfies RegisterPropertyInspectorEvent)
+          } satisfies RegisterPropertyInspectorEvent),
         );
 
         onReady();

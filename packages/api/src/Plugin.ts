@@ -1,11 +1,10 @@
-// TODO: Import from dependency
 import type {
   Info,
   PluginReceiveEvent,
   PluginSendEvent,
   RegisterPlugin,
   RegisterPluginEvent,
-} from "../../types";
+} from "@ciaran1344/stream-deck-types";
 
 import Emitter from "./Emitter";
 

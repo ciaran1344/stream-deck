@@ -1,0 +1,20 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "A strongly typed native ES6 API for creating StreamDeck JavaScript Plugins and Property Inspectors",
+  "author": "Ciarán Ingle",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@ciaran1344/stream-deck-types": "file:../types",
+    "prettier": "3.0.3",
+    "tslib": "2.6.2",
+    "typescript": "5.2.2"
+  }
+}
