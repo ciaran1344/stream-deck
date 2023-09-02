@@ -1,4 +1,4 @@
-# Stream Deck SDK
+# Stream Deck
 
 A collection of libraries and applications built around the
 [StreamDeck JavaScript SDK](https://docs.elgato.com/sdk):
