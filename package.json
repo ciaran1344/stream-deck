@@ -2,14 +2,10 @@
   "name": "@ciaran1344/stream-deck",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ciaran1344/stream-deck-plugins.git"
+    "url": "git+https://github.com/ciaran1344/stream-deck.git"
   },
   "author": "Ciarán Ingle",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ciaran1344/stream-deck-plugins/issues"
-  },
-  "homepage": "https://github.com/ciaran1344/stream-deck-plugins#readme",
   "workspaces": [
     "apps/*",
     "packages/*"
