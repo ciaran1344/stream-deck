@@ -252,7 +252,8 @@ export interface SendToPluginEvent extends EventBase<"sendToPlugin"> {
  *
  * {@link https://docs.elgato.com/sdk/plugins/events-sent/#sendtopropertyinspector}
  */
-export interface SendToPropertyInspectorEvent extends EventBase<"sendToPropertyInspector"> {
+export interface SendToPropertyInspectorEvent
+  extends EventBase<"sendToPropertyInspector"> {
   /** The action's unique identifier. */
   action: string;
   /** A value to identify the instance's action. */

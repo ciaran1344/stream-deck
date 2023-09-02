@@ -8,13 +8,21 @@ TypeScript definitions for the
 ### Register a Plugin
 
 ```ts
-import { PluginReceiveEvent, RegisterPlugin } from "stream-deck/types";
+import type {
+  PluginReceiveEvent,
+  RegisterPlugin,
+} from "@ciaran1344/stream-deck-types";
 
-const connectElgatoStreamDeckSocket: RegisterPlugin = function (port, pluginUuid, eventType, info) {
+const connectElgatoStreamDeckSocket: RegisterPlugin = function (
+  port,
+  pluginUuid,
+  eventType,
+  info,
+) {
   const ws = new WebSocket(`ws://localhost:${port}`);
 
   ws.onmessage = function (event) {
-    const pluginEvent: PluginReceiveEvent = JSON.parse(event.data);
+    const pluginEvent = JSON.parse(event.data) as PluginReceiveEvent;
   };
 };
 ```

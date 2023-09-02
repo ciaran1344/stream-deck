@@ -5,7 +5,9 @@ import { Device } from "../registration";
 import { EventBase } from "./common";
 import { SendToPluginEvent, SendToPropertyInspectorEvent } from "./send";
 
-interface EventAction<E extends string, P extends object> extends EventBase<E>, Action<P> {}
+interface EventAction<E extends string, P extends object>
+  extends EventBase<E>,
+    Action<P> {}
 
 export interface Coordinates {
   column: number;
@@ -19,7 +21,8 @@ interface PayloadBase<S extends object> {
   settings: S;
 }
 
-export interface DidReceiveSettingsPayload<S extends object = any> extends PayloadBase<S> {
+export interface DidReceiveSettingsPayload<S extends object = any>
+  extends PayloadBase<S> {
   /** Boolean indicating if the action is inside a Multi-Action. */
   isInMultiAction: boolean;
 
@@ -50,7 +53,10 @@ export interface DidReceiveGlobalSettingsPayload<S extends object = any> {
  * {@link https://docs.elgato.com/sdk/plugins/events-received#didreceiveglobalsettings}
  */
 export interface DidReceiveGlobalSettingsEvent<S extends object = any>
-  extends EventAction<"didReceiveGlobalSettings", DidReceiveGlobalSettingsPayload<S>> {}
+  extends EventAction<
+    "didReceiveGlobalSettings",
+    DidReceiveGlobalSettingsPayload<S>
+  > {}
 
 export interface KeyDownPayload<S extends object = any> extends PayloadBase<S> {
   /** Boolean indicating if the action is inside a Multi-Action. */
@@ -76,16 +82,19 @@ export interface KeyDownPayload<S extends object = any> extends PayloadBase<S> {
 export interface KeyDownEvent<S extends object = any>
   extends EventAction<"keyDown", KeyDownPayload<S>> {}
 
-export interface KeyUpPayload<S extends object = any> extends KeyDownPayload<S> {}
+export interface KeyUpPayload<S extends object = any>
+  extends KeyDownPayload<S> {}
 
 /**
  * When the user releases a key, the plugin will receive the `keyUp` event.
  *
  * {@link https://docs.elgato.com/sdk/plugins/events-received#keyup}
  */
-export interface KeyUpEvent<S extends object = any> extends EventAction<"keyUp", KeyUpPayload<S>> {}
+export interface KeyUpEvent<S extends object = any>
+  extends EventAction<"keyUp", KeyUpPayload<S>> {}
 
-export interface TouchTapPayload<S extends object = any> extends PayloadBase<S> {
+export interface TouchTapPayload<S extends object = any>
+  extends PayloadBase<S> {
   /** Boolean which is true when long tap happened. */
   hold: boolean;
   /**
@@ -103,7 +112,8 @@ export interface TouchTapPayload<S extends object = any> extends PayloadBase<S> 
 export interface TouchTapEvent<S extends object = any>
   extends EventAction<"touchTap", TouchTapPayload<S>> {}
 
-export interface DialPressPayload<S extends object = any> extends PayloadBase<S> {
+export interface DialPressPayload<S extends object = any>
+  extends PayloadBase<S> {
   /**	Boolean which is `true` on encoder pressed, else `false` on released. */
   pressed: boolean;
 }
@@ -117,7 +127,8 @@ export interface DialPressPayload<S extends object = any> extends PayloadBase<S>
 export interface DialPressEvent<S extends object = any>
   extends EventAction<"dialPress", DialPressPayload<S>> {}
 
-export interface DialRotatePayload<S extends object = any> extends DialPressPayload<S> {
+export interface DialRotatePayload<S extends object = any>
+  extends DialPressPayload<S> {
   /**
    * The integer which holds the number of "ticks" on encoder rotation.
    * Positive values are for clockwise rotation, negative values are for counterclockwise
@@ -134,7 +145,8 @@ export interface DialRotatePayload<S extends object = any> extends DialPressPayl
 export interface DialRotateEvent<S extends object = any>
   extends EventAction<"dialRotate", DialRotatePayload<S>> {}
 
-export interface WillAppearPayload<S extends object = any> extends PayloadBase<S> {
+export interface WillAppearPayload<S extends object = any>
+  extends PayloadBase<S> {
   /**	The string holds the name of the controller of the current action. */
   controller: "Encoder" | "Keypad";
   /**	Boolean indicating if the action is inside a Multi-Action. */
@@ -156,7 +168,8 @@ export interface WillAppearPayload<S extends object = any> extends PayloadBase<S
 export interface WillAppearEvent<S extends object = any>
   extends EventAction<"willAppear", WillAppearPayload<S>> {}
 
-export interface WillDisappearPayload<S extends object = any> extends WillAppearPayload<S> {}
+export interface WillDisappearPayload<S extends object = any>
+  extends WillAppearPayload<S> {}
 
 /**
  * When an instance of an action ceases to be displayed on Stream Deck, for example, when switching
@@ -184,7 +197,8 @@ export interface TitleParameters {
   titleColor: string;
 }
 
-export interface TitleParametersDidChangePayload<S extends object = any> extends PayloadBase<S> {
+export interface TitleParametersDidChangePayload<S extends object = any>
+  extends PayloadBase<S> {
   /**
    * This value indicates which state of the action the title or title parameters have been changed.
    */
@@ -202,7 +216,10 @@ export interface TitleParametersDidChangePayload<S extends object = any> extends
  * {@link https://docs.elgato.com/sdk/plugins/events-received#titleparametersdidchange}
  */
 export interface TitleParametersDidChangeEvent<S extends object = any>
-  extends EventAction<"titleParametersDidChange", TitleParametersDidChangePayload<S>> {}
+  extends EventAction<
+    "titleParametersDidChange",
+    TitleParametersDidChangePayload<S>
+  > {}
 
 export interface DeviceInfo extends Omit<Device, "id"> {}
 
@@ -224,7 +241,8 @@ export interface DeviceDidConnectEvent extends EventBase<"deviceDidConnect"> {
  *
  * {@link https://docs.elgato.com/sdk/plugins/events-received#devicediddisconnect}
  */
-export interface DeviceDidDisconnectEvent extends EventBase<"deviceDidDisconnect"> {
+export interface DeviceDidDisconnectEvent
+  extends EventBase<"deviceDidDisconnect"> {
   /** A value to identify the device. */
   device: string;
 }
@@ -240,12 +258,14 @@ export interface ApplicationDidLaunchPayload {
  *
  * {@link https://docs.elgato.com/sdk/plugins/events-received#applicationdidlaunch}
  */
-export interface ApplicationDidLaunchEvent extends EventBase<"applicationDidLaunch"> {
+export interface ApplicationDidLaunchEvent
+  extends EventBase<"applicationDidLaunch"> {
   /** A JSON object. */
   payload: ApplicationDidLaunchPayload;
 }
 
-export interface ApplicationDidTerminatePayload extends ApplicationDidLaunchPayload {}
+export interface ApplicationDidTerminatePayload
+  extends ApplicationDidLaunchPayload {}
 
 /**
  * When a monitored application is terminated, the plugin will receive the `applicationDidTerminate`
@@ -253,7 +273,8 @@ export interface ApplicationDidTerminatePayload extends ApplicationDidLaunchPayl
  *
  * {@link https://docs.elgato.com/sdk/plugins/events-received#applicationdidterminate}
  */
-export interface ApplicationDidTerminateEvent extends EventBase<"applicationDidTerminate"> {
+export interface ApplicationDidTerminateEvent
+  extends EventBase<"applicationDidTerminate"> {
   /** A JSON object. */
   payload: ApplicationDidTerminatePayload;
 }
@@ -285,7 +306,9 @@ export interface PropertyInspectorDidDisappearEvent
   extends EventBase<"propertyInspectorDidDisappear">,
     ActionDescriptor {}
 
-export type CommonReceiveEvent = DidReceiveSettingsEvent | DidReceiveGlobalSettingsEvent;
+export type CommonReceiveEvent =
+  | DidReceiveSettingsEvent
+  | DidReceiveGlobalSettingsEvent;
 
 export type PluginReceiveEvent =
   | ApplicationDidLaunchEvent
@@ -306,4 +329,6 @@ export type PluginReceiveEvent =
   | WillAppearEvent
   | WillDisappearEvent;
 
-export type PropertyInspectorReceiveEvent = CommonReceiveEvent | SendToPropertyInspectorEvent;
+export type PropertyInspectorReceiveEvent =
+  | CommonReceiveEvent
+  | SendToPropertyInspectorEvent;

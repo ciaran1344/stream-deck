@@ -1,0 +1,17 @@
+{
+  "name": "@ciaran1344/stream-deck",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ciaran1344/stream-deck-plugins.git"
+  },
+  "author": "Ciarán Ingle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ciaran1344/stream-deck-plugins/issues"
+  },
+  "homepage": "https://github.com/ciaran1344/stream-deck-plugins#readme"
+}

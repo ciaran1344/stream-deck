@@ -2,18 +2,19 @@
   "name": "@ciaran1344/stream-deck-types",
   "version": "1.0.0",
   "description": "TypeScript definitions for the Stream Deck SDK",
+  "author": "Ciarán Ingle",
   "main": "dist/index.js",
+  "license": "ISC",
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist",
+    "format": "prettier --write .",
     "type-check": "tsc --noEmit"
   },
-  "author": "Ciarán Ingle",
-  "license": "ISC",
   "devDependencies": {
-    "prettier": "2.8.4",
-    "tslib": "2.5.0",
-    "typescript": "5.0.2"
+    "prettier": "3.0.3",
+    "tslib": "2.6.2",
+    "typescript": "5.2.2"
   }
 }

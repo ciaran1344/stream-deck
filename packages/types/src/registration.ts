@@ -87,7 +87,7 @@ export type RegisterPlugin = (
   /** The event type to register the plugin after opening the WebSocket. */
   inRegisterEvent: RegisterPluginEvent["event"],
   /** A JSON object containing information about the application. */
-  inInfo: Info
+  inInfo: Info,
 ) => void;
 
 export interface ActionInfoPayload<S = any> {
@@ -100,7 +100,8 @@ export interface ActionInfoPayload<S = any> {
  */
 export interface ActionInfo<S = any> extends Action<ActionInfoPayload<S>> {}
 
-export interface RegisterPropertyInspectorEvent extends EventBase<"registerPropertyInspector"> {
+export interface RegisterPropertyInspectorEvent
+  extends EventBase<"registerPropertyInspector"> {
   uuid: string;
 }
 
@@ -117,5 +118,5 @@ export type RegisterPropertyInspector = (
   /** A JSON object containing information about the application. */
   inInfo: Info,
   /** A JSON object containing information about the action. */
-  inActionInfo: ActionInfo
+  inActionInfo: ActionInfo,
 ) => void;
