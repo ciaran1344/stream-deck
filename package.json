@@ -11,6 +11,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --workspace packages/types --workspace packages/api"
+    "build": "npm run build --workspace packages/types --workspace packages/api --workspace apps/",
+    "format": "npm run format --workspaces"
   }
 }

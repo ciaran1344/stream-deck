@@ -1,0 +1,22 @@
+{
+  "name": "echo",
+  "version": "1.0.0",
+  "description": "A simple sequence memory game for the Stream Deck",
+  "author": "Ciarán Ingle",
+  "license": "ISC",
+  "scripts": {
+    "build": "esbuild --bundle --outdir=dist --sourcemap --target=ES6 src/plugin.ts",
+    "clean": "rm -rf dist",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ciaran1344/stream-deck-api": "file:../../packages/api"
+  },
+  "devDependencies": {
+    "esbuild": "0.19.2",
+    "prettier": "3.0.3",
+    "tslib": "2.6.2",
+    "typescript": "5.2.2"
+  }
+}
