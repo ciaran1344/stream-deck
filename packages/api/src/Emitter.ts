@@ -4,6 +4,12 @@
  * @template M Event type to event map
  */
 export default class Emitter<M extends object> {
+  /** Alias for {@link Emitter.addEventListener}. */
+  public on = this.addEventListener;
+
+  /** Alias for {@link Emitter.removeEventListener}. */
+  public off = this.removeEventListener;
+
   /** Map from event type to Set of event listeners. */
   private eventListeners = new Map<keyof M, Set<(event: any) => void>>();
 
@@ -24,7 +30,7 @@ export default class Emitter<M extends object> {
   /** Add a listener for the event type. */
   public addEventListener<T extends keyof M>(
     type: T,
-    listener: (event: M[T]) => void,
+    listener: (event: M[T]) => void
   ): this {
     const listeners = this.eventListeners.get(type);
 
@@ -40,7 +46,7 @@ export default class Emitter<M extends object> {
   /** Remove an existing listener for the event type. */
   public removeEventListener<T extends keyof M>(
     type: T,
-    listener: (event: M[T]) => void,
+    listener: (event: M[T]) => void
   ): this {
     this.eventListeners.get(type)?.delete(listener);
 
